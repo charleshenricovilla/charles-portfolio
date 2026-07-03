@@ -133,8 +133,13 @@ const slideUp = {
               </div>
 
               <div className="flex flex-wrap gap-4 pt-6">
-                <a href="/resume.pdf" target="_blank" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-blue-500/20">
-                  <FileText size={20} /> Download Resume
+                <a 
+                  href="https://docs.google.com/document/d/1BTe7hL6sZwLTzc7ju7-PBCTgth3IhhSF-Tc0WZf3YYM/edit?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-blue-500/20"
+                >
+                  <FileText size={20} /> View Resume
                 </a>
                 <a href="mailto:charleshenricovilla@gmail.com" className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 px-6 py-3 rounded-lg font-medium transition-colors border border-zinc-800">
                   <Mail size={20} /> Email Me
@@ -172,7 +177,7 @@ const slideUp = {
                   title: "Explainable AI for Sugarcane Biotic Stress",
                   tag: "Deep Learning • XAI",
                   desc: "Engineered a web application utilizing CNNs to detect biotic stress on sugarcane leaf images. Integrated Explainable AI (XAI) techniques to generate visual heatmaps for transparent, data-driven disease identification.",
-                  image: "/XAI.png" // Ensured .png extension
+                  image: "/XAI.png" 
                 },
                 {
                   title: "DMI Toronto Web Deployment",
@@ -310,7 +315,7 @@ const slideUp = {
                         containerClass="w-full h-full"
                       />
                     </div>
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">2nd Runner Up</div>
+                    <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">1st Runner Up</div>
                   </div>
 
                   <div className="p-6">
