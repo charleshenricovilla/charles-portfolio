@@ -301,21 +301,21 @@ export default function Portfolio() {
               </motion.div>
             </div>
           </motion.div>
+        
+        {/* Job 3 */}
+        <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
+          <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
+              <ImageWithFallback src="/logo-mycode.png" alt="MyCode Logo" fallbackText="[MyCode]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-zinc-100">MyCode Instructor</h3>
+            <p className="text-blue-400 font-medium mb-4">Freelance / Educational <span className="text-zinc-500 ml-2 text-sm">(2023)</span></p>
+            <p className="text-zinc-400 text-sm leading-relaxed">
+              Taught Python and web programming to beginners. Translated complex algorithmic logic into accessible, digestible lessons for students with no prior technical background.
+            </p>
+          </div>
+        </motion.div>
         </section>
-
-              {/* Job 3 */}
-              <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
-                <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
-                   <ImageWithFallback src="/logo-mycode.png" alt="MyCode Logo" fallbackText="[MyCode]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-100">MyCode Instructor</h3>
-                  <p className="text-blue-400 font-medium mb-4">Freelance / Educational <span className="text-zinc-500 ml-2 text-sm">(2023)</span></p>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
-                    Taught Python and web programming to beginners. Translated complex algorithmic logic into accessible, digestible lessons for students with no prior technical background.
-                  </p>
-                </div>
-              </motion.div>
 
 
         {/* --- 4. CERTIFICATES & EVENTS --- */}
