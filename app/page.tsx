@@ -144,7 +144,7 @@ export default function Portfolio() {
               </h1>
               
               <p className="text-xl md:text-2xl font-medium text-zinc-400">
-                Bridging the gap between <span className="text-blue-400">Deep Learning</span>, <span className="text-blue-400">Full-Stack Dev</span>, and <span className="text-blue-400">UI/UX</span>.
+                Bridging the gap between <span className="text-blue-400">Machine Learning</span>, <span className="text-blue-400">Data Science</span>, and <span className="text-blue-400">Full-Stack Dev</span>.
               </p>
               
               <p className="text-zinc-400 leading-relaxed max-w-lg">
