@@ -144,7 +144,7 @@ export default function Portfolio() {
               </h1>
               
               <p className="text-xl md:text-2xl font-medium text-zinc-400">
-                Bridging the gap between <span className="text-blue-400">Machine Learning</span>, <span className="text-blue-400">Data Science</span>, and <span className="text-blue-400">Full-Stack Dev</span>.
+                Bridging the gap between <span className="text-blue-400">Machine Learning</span>, <span className="text-blue-400">Data Science</span>, and <span className="text-blue-400">Full-Stack Development</span>.
               </p>
               
               <p className="text-zinc-400 leading-relaxed max-w-lg">
@@ -152,7 +152,7 @@ export default function Portfolio() {
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
-                {["React / Next.js", "Python (CNNs)", "Machine Learning", "XAI", "Node.js", "UI/UX Design"].map(skill => (
+                {["Machine Learning", "Data Science", "React / Next.js", "Python (CNNs)",  "XAI", "UI/UX Design"].map(skill => (
                   <span key={skill} className="text-xs font-mono bg-zinc-900 text-zinc-300 px-3 py-1.5 rounded border border-zinc-800">{skill}</span>
                 ))}
               </div>
@@ -271,9 +271,7 @@ export default function Portfolio() {
 
             <div className="space-y-6">
 
-        
-              
-              {/* Job 2 */}
+              {/* Job 1 */}
               <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
                 <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
                    <ImageWithFallback src="/logo-dmi.png" alt="DMI Logo" fallbackText="[DMI Logo]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
@@ -287,21 +285,7 @@ export default function Portfolio() {
                 </div>
               </motion.div>
 
-              {/* Job 3 */}
-              <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
-                <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
-                   <ImageWithFallback src="/logo-mycode.png" alt="MyCode Logo" fallbackText="[MyCode]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-100">MyCode Instructor</h3>
-                  <p className="text-blue-400 font-medium mb-4">Freelance / Educational <span className="text-zinc-500 ml-2 text-sm">(2023)</span></p>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
-                    Taught Python and web programming to beginners. Translated complex algorithmic logic into accessible, digestible lessons for students with no prior technical background.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Job 4 */}
+              {/* Job 2 */}
               <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
                 <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
                    <ImageWithFallback src="/logo-ipb.png" alt="IPB Logo" fallbackText="[IPB Logo]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
@@ -318,6 +302,21 @@ export default function Portfolio() {
             </div>
           </motion.div>
         </section>
+
+              {/* Job 3 */}
+              <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
+                <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
+                   <ImageWithFallback src="/logo-mycode.png" alt="MyCode Logo" fallbackText="[MyCode]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-zinc-100">MyCode Instructor</h3>
+                  <p className="text-blue-400 font-medium mb-4">Freelance / Educational <span className="text-zinc-500 ml-2 text-sm">(2023)</span></p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Taught Python and web programming to beginners. Translated complex algorithmic logic into accessible, digestible lessons for students with no prior technical background.
+                  </p>
+                </div>
+              </motion.div>
+
 
         {/* --- 4. CERTIFICATES & EVENTS --- */}
         <section id="certs" className="py-24 scroll-mt-24 border-t border-zinc-900">
