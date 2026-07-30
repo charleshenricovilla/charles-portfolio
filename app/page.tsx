@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, FileText, Code, Award, Briefcase, MapPin, GraduationCap, Star } from "lucide-react";
 
 // --- SMART IMAGE FALLBACK COMPONENT ---
@@ -28,6 +28,7 @@ const ImageWithFallback = ({ src, alt, fallbackText, imgClass, containerClass }:
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("intro");
+  const [eventIndex, setEventIndex] = useState(0);
 
   // Intersection Observer for the Scroll-Spy Navigation
   useEffect(() => {
@@ -48,6 +49,14 @@ export default function Portfolio() {
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
+  // Alternating Events Timer (Changes every 5 seconds)
+  useEffect(() => {
+    const eventInterval = setInterval(() => {
+      setEventIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(eventInterval);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -63,11 +72,11 @@ export default function Portfolio() {
     { id: "extra", label: "Extracurricular" },
   ];
 
-  // --- UPGRADED ANIMATIONS ---
-const slideUp = {
+  const slideUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } 
   };
+  
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,6 +84,22 @@ const slideUp = {
       transition: { staggerChildren: 0.15 }
     }
   };
+
+  // Data for Alternating Events
+  const notableEvents = [
+    {
+      image: "/event-ateneo.jpg",
+      badge: "1st Runner Up",
+      title: "Ateneo MISA Case Competition (2025)",
+      desc: "Secured a podium finish in a tech-field business case competition focusing on RCBC Bank. Proposed digital transformation strategies and financial tech solutions to solve real-world banking challenges."
+    },
+    {
+      image: "/MLMI.JPG",
+      badge: "Best Presentation",
+      title: "MLMI 2026, Japan",
+      desc: "Presented Explainable AI for Sugarcane Biotic Stress. Engineered a deep learning application to detect diseases with visual XAI heatmaps, earning the Best Presentation award."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-blue-500/30 pb-20 overflow-hidden">
@@ -123,11 +148,11 @@ const slideUp = {
               </p>
               
               <p className="text-zinc-400 leading-relaxed max-w-lg">
-                I build intelligent, accessible, and user-centric digital solutions. From training CNNs for agricultural biotic stress to deploying secure React architectures and optimizing UI/UX workflows, my character is defined by a passion for creating impactful, data-driven software.
+                As a dedicated AI Engineer, I specialize in transforming complex data into actionable, real-world solutions using advanced machine learning, Deep Learning, and Explainable AI (XAI). My greatest contribution lies in combining this rigorous technical expertise with a highly collaborative, leadership-driven character forged through managing full-stack development teams and spearheading community initiatives. Ultimately, I bridge the gap between sophisticated algorithmic innovation and empathetic problem-solving to build transparent, accessible technologies that truly empower users.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
-                {["React / Next.js", "Python (CNNs)", "Node.js", "MongoDB & SQL", "Tailwind CSS", "UI/UX Design"].map(skill => (
+                {["React / Next.js", "Python (CNNs)", "Machine Learning", "XAI", "Node.js", "UI/UX Design"].map(skill => (
                   <span key={skill} className="text-xs font-mono bg-zinc-900 text-zinc-300 px-3 py-1.5 rounded border border-zinc-800">{skill}</span>
                 ))}
               </div>
@@ -186,6 +211,18 @@ const slideUp = {
                   image: "/DMI.png"
                 },
                 {
+                  title: "IRIS (Institute of Plant Breeding)",
+                  tag: "Python • PySide6 • UI/UX",
+                  desc: "Developed a modern, user-centric software interface for machine learning-based plant analysis. Democratized access to the Partial Least Squares (PLS) algorithm, allowing non-technical researchers to perform complex spectral analysis easily.",
+                  image: "/IRIS.png"
+                },
+                {
+                  title: "SpectroAC: ML Chemometrics System",
+                  tag: "R Shiny • XGBoost • PLSR",
+                  desc: "Engineered an interactive web application utilizing advanced machine learning algorithms to predict Amylose Content and Glycemic Index from spectral data. Features automated pipelines for rapid, non-destructive nutritional profiling.",
+                  image: "/SpectroAC.png"
+                },
+                {
                   title: "AKAP Donation Drive Website",
                   tag: "Blockchain • Immutable Ledger",
                   desc: "Led the development of a secure React.js donation platform integrated with blockchain technology to create an immutable ledger for absolute financial transparency and tamper-proof tracking of charitable funds.",
@@ -233,22 +270,38 @@ const slideUp = {
             </motion.div>
 
             <div className="space-y-6">
+
+        
               
-              {/* Job 1 */}
+              {/* Job 2 */}
               <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
                 <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
                    <ImageWithFallback src="/logo-dmi.png" alt="DMI Logo" fallbackText="[DMI Logo]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-zinc-100">Project Manager</h3>
-                  <p className="text-blue-400 font-medium mb-4">DMI Toronto Web Deployment <span className="text-zinc-500 ml-2 text-sm">(Jan 2025 - Feb 2025)</span></p>
+                  <p className="text-blue-400 font-medium mb-4">DMI Toronto Web Deployment <span className="text-zinc-500 ml-2 text-sm">(Jan 2025 - Jun 2025)</span></p>
                   <p className="text-zinc-400 text-sm leading-relaxed">
                     Spearheaded a 5-person development team to deliver a full-stack React/Node.js platform for a Canadian non-profit church. Managed the end-to-end SDLC, translated client business requirements into technical specifications, and ensured successful deployment within strict budget and timeline constraints.
                   </p>
                 </div>
               </motion.div>
 
-              {/* Job 2 */}
+              {/* Job 3 */}
+              <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
+                <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
+                   <ImageWithFallback src="/logo-mycode.png" alt="MyCode Logo" fallbackText="[MyCode]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-zinc-100">MyCode Instructor</h3>
+                  <p className="text-blue-400 font-medium mb-4">Freelance / Educational <span className="text-zinc-500 ml-2 text-sm">(2023)</span></p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Taught Python and web programming to beginners. Translated complex algorithmic logic into accessible, digestible lessons for students with no prior technical background.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Job 4 */}
               <motion.div variants={slideUp} className="flex flex-col md:flex-row gap-6 bg-zinc-900/50 border border-zinc-800 p-6 md:p-8 rounded-2xl hover:bg-zinc-900 transition-colors">
                 <div className="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden border border-zinc-700 bg-zinc-800">
                    <ImageWithFallback src="/logo-ipb.png" alt="IPB Logo" fallbackText="[IPB Logo]" imgClass="w-full h-full object-contain bg-white p-2" containerClass="w-full h-full" />
@@ -257,9 +310,8 @@ const slideUp = {
                   <h3 className="text-xl font-bold text-zinc-100">Full Stack Developer (Internship)</h3>
                   <p className="text-blue-400 font-medium mb-4">Institute of Plant Breeding <span className="text-zinc-500 ml-2 text-sm">(2025)</span></p>
                   <ul className="list-disc list-inside text-zinc-400 text-sm leading-relaxed space-y-2">
-                    <li><strong className="text-zinc-200">Modern UI/UX:</strong> Developed "IRIS" (Instantaneous Regression & Inference from Spectra), a user-centric software interface using Python (PySide6) for machine learning-based plant analysis.</li>
+                    <li><strong className="text-zinc-200">Modern UI/UX:</strong> Developed "IRIS", a user-centric software interface using Python (PySide6) for machine learning-based plant analysis.</li>
                     <li><strong className="text-zinc-200">Workflow Optimization:</strong> Streamlined complex research workflows by replacing convoluted menus with a linear, step-by-step process.</li>
-                    <li><strong className="text-zinc-200">Accessibility:</strong> Democratized access to the Partial Least Squares (PLS) algorithm for non-technical researchers.</li>
                   </ul>
                 </div>
               </motion.div>
@@ -298,31 +350,56 @@ const slideUp = {
                 ))}
               </div>
 
-              {/* Events Column */}
+              {/* Alternating Events Column */}
               <motion.div variants={slideUp}>
                 <h3 className="text-xl font-bold text-zinc-200 mb-6 flex items-center gap-2">
                   <MapPin size={20} className="text-zinc-500" /> Notable Events
                 </h3>
-                <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden group hover:border-zinc-700 transition-colors relative shadow-lg">
-                  
-                  <div className="h-56 border-b border-zinc-800 relative overflow-hidden bg-zinc-800">
-                    <div className="w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
-                      <ImageWithFallback 
-                        src="/event-ateneo.jpg" 
-                        alt="Ateneo MISA" 
-                        fallbackText="[Upload event-ateneo.jpg]" 
-                        imgClass="w-full h-full object-cover" 
-                        containerClass="w-full h-full"
-                      />
-                    </div>
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">1st Runner Up</div>
-                  </div>
+                
+                <div className="relative h-[420px] bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden shadow-lg group hover:border-zinc-700 transition-colors">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={eventIndex}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute inset-0 flex flex-col"
+                    >
+                      <div className="h-56 border-b border-zinc-800 relative overflow-hidden bg-zinc-800">
+                        <div className="w-full h-full transform transition-transform duration-700 ease-in-out">
+                          <ImageWithFallback 
+                            src={notableEvents[eventIndex].image} 
+                            alt={notableEvents[eventIndex].title} 
+                            fallbackText={`[Upload ${notableEvents[eventIndex].image.replace('/', '')}]`} 
+                            imgClass="w-full h-full object-cover" 
+                            containerClass="w-full h-full"
+                          />
+                        </div>
+                        <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                          {notableEvents[eventIndex].badge}
+                        </div>
+                      </div>
 
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-zinc-100 mb-2">Ateneo MISA Case Competition <span className="text-zinc-500 text-base font-normal">(2025)</span></h4>
-                    <p className="text-sm text-zinc-400 leading-relaxed mb-4">
-                      Secured a podium finish in a tech-field business case competition focusing on RCBC Bank. Proposed digital transformation strategies and financial tech solutions to solve real-world banking challenges.
-                    </p>
+                      <div className="p-6">
+                        <h4 className="text-xl font-bold text-zinc-100 mb-2">
+                          {notableEvents[eventIndex].title}
+                        </h4>
+                        <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+                          {notableEvents[eventIndex].desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                  
+                  {/* Slider dots indicator */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+                    {notableEvents.map((_, idx) => (
+                      <div 
+                        key={idx} 
+                        className={`w-2 h-2 rounded-full transition-colors ${idx === eventIndex ? 'bg-blue-500' : 'bg-zinc-600'}`}
+                      />
+                    ))}
                   </div>
                 </div>
               </motion.div>
