@@ -148,8 +148,8 @@ export default function Portfolio() {
               </p>
               
               <p className="text-zinc-400 leading-relaxed max-w-lg">
-                I possess the exact blend of technical skills and collaborative character required to excel in modern AI engineering roles. Technically, I engineer robust solutions using advanced Machine Learning, Deep Learning, and Explainable AI (XAI). Personally, my character is defined by empathetic problem-solving and team leadership, forged through managing full-stack developers. This combination equips me to drive AI initiatives from complex algorithmic concepts to transparent, user-centric products that deliver real-world impact.
-                 </p>
+                I bring the technical expertise and positive character needed for modern AI engineering. I am highly collaborative and a great teammate to work with, I effectively combine Machine Learning, Deep Learning, and XAI with empathetic leadership to build transparent, impactful products
+              </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
                 {["Machine Learning", "Data Science", "React / Next.js", "Python (CNNs)",  "XAI", "UI/UX Design"].map(skill => (
