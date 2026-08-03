@@ -148,8 +148,8 @@ export default function Portfolio() {
               </p>
               
               <p className="text-zinc-400 leading-relaxed max-w-lg">
-                As a dedicated AI Engineer, I specialize in transforming complex data into actionable, real-world solutions using advanced machine learning, Deep Learning, and Explainable AI (XAI). My greatest contribution lies in combining this rigorous technical expertise with a highly collaborative, leadership-driven character forged through managing full-stack development teams and spearheading community initiatives. Ultimately, I bridge the gap between sophisticated algorithmic innovation and empathetic problem-solving to build transparent, accessible technologies that truly empower users.
-              </p>
+                I possess the exact blend of technical skills and collaborative character required to excel in modern AI engineering roles. Technically, I engineer robust solutions using advanced Machine Learning, Deep Learning, and Explainable AI (XAI). Personally, my character is defined by empathetic problem-solving and team leadership, forged through managing full-stack developers. This combination equips me to drive AI initiatives from complex algorithmic concepts to transparent, user-centric products that deliver real-world impact.
+                 </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
                 {["Machine Learning", "Data Science", "React / Next.js", "Python (CNNs)",  "XAI", "UI/UX Design"].map(skill => (
