@@ -67,12 +67,13 @@ export default function Portfolio() {
   const navItems = [
     { id: "intro", label: "Intro" },
     { id: "apps", label: "Featured Works" },
+    { id: "automations", label: "Automations" },
     { id: "work", label: "Experience" },
     { id: "certs", label: "Certificates & Events" },
     { id: "extra", label: "Extracurricular" },
   ];
 
-// --- PREMIUM ANIMATIONS (Triggers on scroll up & down) ---
+  // --- PREMIUM ANIMATIONS (Triggers on scroll up & down) ---
   const slideUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } } 
@@ -149,10 +150,6 @@ export default function Portfolio() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={staggerContainer} className="flex flex-col-reverse md:flex-row items-center gap-16">
             
             <motion.div variants={slideUp} className="flex-1 space-y-8">
-              {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-sm text-zinc-300 backdrop-blur-md shadow-lg shadow-black/20">
-                <GraduationCap size={16} className="text-purple-400" />
-                <span>UP Los Baños (BS Computer Science, Class of 2026)</span>
-              </div> */}
               
               <div className="space-y-4">
                 <p className="text-blue-400 font-mono text-sm uppercase tracking-widest">Hi, I'm</p>
@@ -197,12 +194,11 @@ export default function Portfolio() {
               {/* Outer Ambient Glow */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-full blur-3xl opacity-40 animate-pulse"></div>
               
-              {/* Solid Background Circle (Replaces the container box) */}
+              {/* Solid Background Circle */}
               <div className="absolute inset-x-2 top-8 bottom-0 rounded-full bg-gradient-to-br from-blue-600/80 to-purple-700/80 backdrop-blur-md shadow-2xl border border-white/20" />
 
               {/* Foreground Transparent Image overlapping the circle */}
               <div className="relative z-10 w-[115%] h-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] pointer-events-none -mb-4">
-                {/* Changed to profile-sablay.png assuming you removed the background */}
                 <ImageWithFallback 
                   src="/profile-sablay.png" 
                   alt="Charles Sablay Pic" 
@@ -294,7 +290,58 @@ export default function Portfolio() {
           </motion.div>
         </section>
 
-        {/* --- 3. WORK EXPERIENCE --- */}
+        {/* --- 3. AUTOMATIONS --- */}
+        <section id="automations" className="py-24 scroll-mt-24 relative">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={staggerContainer}>
+            
+            <motion.div variants={slideUp} className="mb-12">
+              <p className="text-blue-400 font-mono text-sm uppercase tracking-widest mb-2">Systems & Pipelines</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white flex items-center gap-4">
+                Automations <div className="h-[1px] flex-1 bg-gradient-to-r from-white/20 to-transparent"></div>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "SwervOps: Autonomous AI Competitor Intelligence Pipeline",
+                  role: "Marketing AI Engineer",
+                  year: "2026",
+                  desc: "Engineered a cloud-automated telemetry pipeline to monitor competitor e-commerce catalogs via Shopify JSON endpoints, detecting unreleased product drops and pricing shifts. Integrated an LLM evaluation layer (Groq/Llama 3) to filter operational noise, automatically generate proactive Go-To-Market (GTM) strategies, and route tiered intelligence reports via Slack. Designed a zero-cost, self-healing architecture using GitHub Actions and Supabase (PostgreSQL) for state management and automated error diagnostic."
+                },
+                {
+                  title: "Automated Competitor Repricing Engine",
+                  role: "AI Automation Engineer",
+                  year: "2026",
+                  desc: "Engineered an algorithmic repricing prototype utilizing n8n and Groq's high-speed LLM inference (Llama-3). Orchestrated an end-to-end automated pipeline that scrapes competitor product pages, evaluates margin constraints against a floor price, and dynamically updates a centralized e-commerce database with optimized pricing strategies."
+                },
+                {
+                  title: "Intelligent Web Scraping & AI Extraction Pipeline",
+                  role: "AI Automation Engineer",
+                  year: "2026",
+                  desc: "Developed a robust, automated web scraping workflow integrating HTTP requests and CSS selector extraction. Utilized prompt engineering with Groq LLMs to parse unstructured, raw HTML into clean, structured JSON data, significantly accelerating real-time competitive market analysis."
+                },
+                {
+                  title: "Multi-Channel Ad Data Aggregation System",
+                  role: "AI Automation Engineer",
+                  year: "2026",
+                  desc: "Designed a serverless data ingestion pipeline connecting the Google Drive API with n8n to automate the extraction and processing of raw marketing CSVs (Meta, Google, TikTok). Streamlined cross-platform ad data into a centralized architecture to eliminate manual data entry and facilitate automated reporting workflows."
+                }
+              ].map((item, i) => (
+                <motion.div variants={slideUp} key={i} whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/[0.05] p-8 rounded-2xl hover:bg-white/[0.05] hover:border-white/[0.1] transition-all duration-300 backdrop-blur-sm group relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <h4 className="font-bold text-white text-xl mb-3">{item.title}</h4>
+                  <p className="text-blue-400 text-sm font-medium mb-4 flex items-center gap-2">
+                    {item.role} <span className="text-zinc-600 text-xs font-mono">[{item.year}]</span>
+                  </p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
+        {/* --- 4. WORK EXPERIENCE --- */}
         <section id="work" className="py-24 scroll-mt-24 relative">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={staggerContainer}>
             
@@ -362,7 +409,7 @@ export default function Portfolio() {
           </motion.div>
         </section>
 
-        {/* --- 4. CERTIFICATES & EVENTS --- */}
+        {/* --- 5. CERTIFICATES & EVENTS --- */}
         <section id="certs" className="py-24 scroll-mt-24 relative">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={staggerContainer}>
             
@@ -456,7 +503,7 @@ export default function Portfolio() {
           </motion.div>
         </section>
 
-        {/* --- 5. EXTRACURRICULAR --- */}
+        {/* --- 6. EXTRACURRICULAR --- */}
         <section id="extra" className="py-24 scroll-mt-24 relative">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={staggerContainer}>
             
